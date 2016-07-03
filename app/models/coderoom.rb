@@ -1,0 +1,2 @@
+class Coderoom < ApplicationRecord
+end
