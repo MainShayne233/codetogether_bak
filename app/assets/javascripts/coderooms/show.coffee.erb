@@ -39,8 +39,9 @@ ready = ->
     $.ajax({
       type: 'GET',
       url: '/whiteboards/' + id + '/run',
-      success:  ->
-        console.log 'worked!'
+      dataType: 'JSON'
+      success: (data) ->
+        $('#output').html(data.return)
     })
 
 

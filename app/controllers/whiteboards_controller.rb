@@ -9,7 +9,7 @@ class WhiteboardsController < ApplicationController
     whiteboard = Whiteboard.find(params['whiteboard_id'])
     puts whiteboard.run
     respond_to do |format|
-      format.json{ render json: whiteboard.run}
+      format.json{ render json: {return: whiteboard.run}}
     end
   end
 
