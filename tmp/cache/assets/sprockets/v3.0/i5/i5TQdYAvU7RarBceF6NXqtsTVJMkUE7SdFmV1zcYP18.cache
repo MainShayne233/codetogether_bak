@@ -1,0 +1,22 @@
+I"˜(function() {
+  var keystrokes, ready;
+
+  keystrokes = [];
+
+  ready = function() {
+    return $('textarea').keyup(function(event) {
+      var worker;
+      keystrokes.push(1);
+      worker = new Worker("/javascripts/cable_runner.js");
+      return worker.postMessage('data');
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+  window.keystrokes = keystrokes;
+
+}).call(this);
+:ET

@@ -1,0 +1,17 @@
+I"7(function() {
+  var ready;
+
+  ready = function() {
+    return $('textarea').keyup(function(event) {
+      var worker;
+      worker = Worker["new"]("/javascripts/cable_runner.js");
+      return console.log(worker);
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

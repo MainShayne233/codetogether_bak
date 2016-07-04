@@ -1,0 +1,21 @@
+I"(function() {
+  App.coderoom = App.cable.subscriptions.create("CoderoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      return $('textarea#' + data.id).val(data.content);
+    },
+    type: function(id, content) {
+      return this.perform('type', {
+        id: id,
+        content: content
+      });
+    }
+  });
+
+  $(document).on('change', 'textarea', function(event) {
+    return App.coderoom.type($(event.target).attr('id'), $(event.target).val());
+  });
+
+}).call(this);
+:ET

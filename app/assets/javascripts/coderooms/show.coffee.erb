@@ -1,0 +1,17 @@
+ready = ->
+  $('textarea').keyup (event) ->
+    id = $(event.target).attr('id')
+    content = $(event.target).val()
+    user_id = $('input.user').attr('id')
+
+    $.ajax({
+      type: 'PATCH',
+      url: '/whiteboards/' + id
+      data: {content: content},
+      datatype: 'JSON'
+    })
+
+    App.coderoom.type(id, content, user_id)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)

@@ -1,0 +1,25 @@
+I"O(function() {
+  App.coderoom = App.cable.subscriptions.create("CoderoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      return alert(data.id);
+    },
+    type: function(id, content) {
+      return this.perform('type', {
+        id: id,
+        content: content
+      });
+    }
+  });
+
+  $(document).on('keyup', 'textarea', function(event) {
+    var content, id, textarea;
+    textarea = $(event.target);
+    id = textarea.attr('id');
+    content = textarea.val();
+    return App.coderoom.type(id, content);
+  });
+
+}).call(this);
+:ET

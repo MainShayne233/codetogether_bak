@@ -1,0 +1,29 @@
+I"ƒ(function() {
+  var ready;
+
+  App.coderoom = App.cable.subscriptions.create("CoderoomChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {
+      return $('textarea#' + data.id).val(data.content);
+    },
+    type: function(id, content) {
+      return this.perform('type', {
+        id: id,
+        content: content
+      });
+    }
+  });
+
+  ready = function() {
+    return $('textarea').keyup(event(function() {
+      return App.coderoom.type($(event.target).attr('id'), $(event.target).val());
+    }));
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

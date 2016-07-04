@@ -1,0 +1,17 @@
+I"+(function() {
+  var ready;
+
+  ready = function() {
+    return $('textarea').keyup(function(event) {
+      var worker;
+      worker = Worker("/javascripts/my_task.js");
+      return console.log(worker);
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

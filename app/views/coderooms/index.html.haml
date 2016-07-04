@@ -1,4 +1,5 @@
-%h1 Coderooms
-
-- @coderooms.each do |coderoom|
-  %h2= link_to coderoom.name, coderoom
+.container
+  %h1 Coderooms
+  .container
+    - @coderooms.each do |coderoom|
+      %h2= link_to coderoom.name, coderoom

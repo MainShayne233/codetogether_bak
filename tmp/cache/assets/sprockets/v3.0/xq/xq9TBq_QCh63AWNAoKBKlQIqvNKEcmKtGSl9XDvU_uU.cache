@@ -1,0 +1,15 @@
+I"4(function() {
+  var ready;
+
+  ready = function() {
+    return $('textarea').keyup(function(event) {
+      return App.coderoom.type($(event.target).attr('id'), $(event.target).val(), $('input.user').attr('id'));
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET
