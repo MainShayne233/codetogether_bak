@@ -34,5 +34,15 @@ ready = ->
     App.coderoom.type(id, content, user_id)
 
 
+  $('#run_script').click ->
+    id = $('.code_container').attr('id')
+    $.ajax({
+      type: 'GET',
+      url: '/whiteboards/' + id + '/run',
+      success:  ->
+        console.log 'worked!'
+    })
+
+
 $(document).ready(ready)
 $(document).on('page:load', ready)

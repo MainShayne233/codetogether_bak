@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :coderooms
 
-  resources :whiteboards
+  resources :whiteboards do
+    get '/run' => 'whiteboards#run'
+  end
 
 end
