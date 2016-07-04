@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require codemirror
+ *= require codemirror/themes/base16-dark
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";

@@ -16,7 +16,9 @@ ready = ->
 
   window.codeMirror = CodeMirror.fromTextArea($('.code').get(0), {
     lineNumbers: true,
-    mode: "text/x-ruby"
+    mode: "text/x-ruby",
+    theme: 'base16-dark',
+    tabSize: 2
   });
 
   window.codeMirror.on 'keyup', (event) ->
