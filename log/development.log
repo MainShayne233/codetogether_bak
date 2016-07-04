@@ -33607,3 +33607,121 @@ Started GET "/cable/" [WebSocket] for ::1 at 2016-07-04 13:22:45 -0400
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
 CoderoomChannel is transmitting the subscription confirmation
 CoderoomChannel is streaming from coderoom_channel
+Started GET "/coderooms/1" for ::1 at 2016-07-04 13:23:12 -0400
+Processing by CoderoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoderoom Load (0.1ms)[0m  [1m[34mSELECT  "coderooms".* FROM "coderooms" WHERE "coderooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering coderooms/show.html.haml within layouts/application
+  [1m[36mWhiteboard Load (0.2ms)[0m  [1m[34mSELECT "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."coderoom_id" = $1[0m  [["coderoom_id", 1]]
+  Rendered collection of whiteboards/_whiteboard.html.haml [1 times] (1.0ms)
+  Rendered coderooms/show.html.haml within layouts/application (3.8ms)
+  Rendered layouts/_navbar.html.haml (2.0ms)
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2016-07-04 13:23:12 -0400
+CoderoomChannel stopped streaming from coderoom_channel
+Started GET "/cable" for ::1 at 2016-07-04 13:23:12 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2016-07-04 13:23:12 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+CoderoomChannel is transmitting the subscription confirmation
+CoderoomChannel is streaming from coderoom_channel
+Started GET "/coderooms/1" for ::1 at 2016-07-04 13:23:29 -0400
+Processing by CoderoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCoderoom Load (0.1ms)[0m  [1m[34mSELECT  "coderooms".* FROM "coderooms" WHERE "coderooms"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering coderooms/show.html.haml within layouts/application
+  [1m[36mWhiteboard Load (0.2ms)[0m  [1m[34mSELECT "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."coderoom_id" = $1[0m  [["coderoom_id", 1]]
+  Rendered collection of whiteboards/_whiteboard.html.haml [1 times] (1.0ms)
+  Rendered coderooms/show.html.haml within layouts/application (3.9ms)
+  Rendered layouts/_navbar.html.haml (1.9ms)
+Completed 200 OK in 47ms (Views: 44.7ms | ActiveRecord: 0.5ms)
+
+
+Finished "/cable/" [WebSocket] for ::1 at 2016-07-04 13:23:30 -0400
+CoderoomChannel stopped streaming from coderoom_channel
+Started GET "/cable" for ::1 at 2016-07-04 13:23:30 -0400
+Started GET "/cable/" [WebSocket] for ::1 at 2016-07-04 13:23:30 -0400
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+CoderoomChannel is transmitting the subscription confirmation
+CoderoomChannel is streaming from coderoom_channel
+CoderoomChannel#type({"id"=>"1", "content"=>"defe", "user_id"=>"1"})
+[ActionCable] Broadcasting to coderoom_channel: {:id=>"1", :content=>"defe", :user_id=>"1"}
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defe", "user_id"=>"1"} (via streamed from coderoom_channel)
+Started PATCH "/whiteboards/1" for ::1 at 2016-07-04 13:23:31 -0400
+Processing by WhiteboardsController#update as */*
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defe", "user_id"=>"1"} (via streamed from coderoom_channel)
+  Parameters: {"content"=>"defe", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWhiteboard Load (0.1ms)[0m  [1m[34mSELECT  "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "whiteboards" SET "content" = $1, "updated_at" = $2 WHERE "whiteboards"."id" = $3[0m  [["content", "defe"], ["updated_at", 2016-07-04 17:23:31 UTC], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+No template found for WhiteboardsController#update, rendering head :no_content
+Completed 204 No Content in 114ms (ActiveRecord: 1.4ms)
+
+
+CoderoomChannel#type({"id"=>"1", "content"=>"defed", "user_id"=>"1"})
+[ActionCable] Broadcasting to coderoom_channel: {:id=>"1", :content=>"defed", :user_id=>"1"}
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defed", "user_id"=>"1"} (via streamed from coderoom_channel)
+Started PATCH "/whiteboards/1" for ::1 at 2016-07-04 13:23:32 -0400
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defed", "user_id"=>"1"} (via streamed from coderoom_channel)
+Processing by WhiteboardsController#update as */*
+  Parameters: {"content"=>"defed", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWhiteboard Load (0.1ms)[0m  [1m[34mSELECT  "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "whiteboards" SET "content" = $1, "updated_at" = $2 WHERE "whiteboards"."id" = $3[0m  [["content", "defed"], ["updated_at", 2016-07-04 17:23:32 UTC], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+No template found for WhiteboardsController#update, rendering head :no_content
+Completed 204 No Content in 113ms (ActiveRecord: 1.3ms)
+
+
+CoderoomChannel#type({"id"=>"1", "content"=>"defedasd", "user_id"=>"1"})
+[ActionCable] Broadcasting to coderoom_channel: {:id=>"1", :content=>"defedasd", :user_id=>"1"}
+Started PATCH "/whiteboards/1" for ::1 at 2016-07-04 13:23:33 -0400
+Processing by WhiteboardsController#update as */*
+  Parameters: {"content"=>"defedasd", "id"=>"1"}
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWhiteboard Load (0.1ms)[0m  [1m[34mSELECT  "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "whiteboards" SET "content" = $1, "updated_at" = $2 WHERE "whiteboards"."id" = $3[0m  [["content", "defedasd"], ["updated_at", 2016-07-04 17:23:33 UTC], ["id", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+No template found for WhiteboardsController#update, rendering head :no_content
+Completed 204 No Content in 116ms (ActiveRecord: 1.8ms)
+
+
+Started PATCH "/whiteboards/1" for ::1 at 2016-07-04 13:23:33 -0400
+CoderoomChannel#type({"id"=>"1", "content"=>"defedasd", "user_id"=>"1"})
+CoderoomChannel#type({"id"=>"1", "content"=>"defedasd", "user_id"=>"1"})
+Processing by WhiteboardsController#update as */*
+Started PATCH "/whiteboards/1" for ::1 at 2016-07-04 13:23:33 -0400
+[ActionCable] Broadcasting to coderoom_channel: {:id=>"1", :content=>"defedasd", :user_id=>"1"}
+[ActionCable] Broadcasting to coderoom_channel: {:id=>"1", :content=>"defedasd", :user_id=>"1"}
+  Parameters: {"content"=>"defedasd", "id"=>"1"}
+Processing by WhiteboardsController#update as */*
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+  Parameters: {"content"=>"defedasd", "id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWhiteboard Load (1.2ms)[0m  [1m[34mSELECT  "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWhiteboard Load (0.3ms)[0m  [1m[34mSELECT  "whiteboards".* FROM "whiteboards" WHERE "whiteboards"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+CoderoomChannel transmitting {"id"=>"1", "content"=>"defedasd", "user_id"=>"1"} (via streamed from coderoom_channel)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (87.5ms)[0m  [1m[35mCOMMIT[0m
+No template found for WhiteboardsController#update, rendering head :no_content
+No template found for WhiteboardsController#update, rendering head :no_content
+Completed 204 No Content in 224ms (ActiveRecord: 2.4ms)
+
+
+Completed 204 No Content in 222ms (ActiveRecord: 89.2ms)
+
+
