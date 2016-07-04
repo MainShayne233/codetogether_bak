@@ -1,0 +1,31 @@
+I"¹(function() {
+  var ready;
+
+  ready = function() {
+    this.codeMirror = CodeMirror.fromTextArea($('.code').get(0), {
+      lineNumbers: true,
+      mode: "text/x-ruby"
+    });
+    return codeMirror.on('change', function(event) {
+      var content, id, user_id;
+      id = $('.code_container').attr('id');
+      content = event.getValue();
+      user_id = $('input.user').attr('id');
+      $.ajax({
+        type: 'PATCH',
+        url: '/whiteboards/' + id,
+        data: {
+          content: content
+        },
+        datatype: 'JSON'
+      });
+      return App.coderoom.type(id, content, user_id);
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

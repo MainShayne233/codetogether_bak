@@ -1,7 +1,27 @@
 ready = ->
-  $('textarea').keyup (event) ->
-    id = $(event.target).attr('id')
-    content = $(event.target).val()
+#  $('textarea').keyup (event) ->
+#    console.log $(event.target).html()
+#    id = $(event.target).attr('id')
+#    content = $(event.target).val()
+#    user_id = $('input.user').attr('id')
+#
+#    $.ajax({
+#      type: 'PATCH',
+#      url: '/whiteboards/' + id
+#      data: {content: content},
+#      datatype: 'JSON'
+#    })
+#
+#    App.coderoom.type(id, content, user_id)
+
+  window.codeMirror = CodeMirror.fromTextArea($('.code').get(0), {
+    lineNumbers: true,
+    mode: "text/x-ruby"
+  });
+
+  window.codeMirror.on 'keyup', (event) ->
+    id = $('.code_container').attr('id')
+    content = event.getValue()
     user_id = $('input.user').attr('id')
 
     $.ajax({
@@ -12,6 +32,7 @@ ready = ->
     })
 
     App.coderoom.type(id, content, user_id)
+
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -1,0 +1,16 @@
+I"ö(function() {
+  var ready;
+
+  ready = function() {
+    var codeMirror;
+    return codeMirror = CodeMirror(document.body, {
+      mode: "text/x-ruby"
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

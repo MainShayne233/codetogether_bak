@@ -1,1 +1,4 @@
-%textarea.form-control{rows: 20, id: whiteboard.id}= whiteboard.content
+.code_container{id: whiteboard.id}
+  %textarea.code{rows: 20}= whiteboard.content
+
+%input{type: 'hidden', class: 'user', id: current_user.id}

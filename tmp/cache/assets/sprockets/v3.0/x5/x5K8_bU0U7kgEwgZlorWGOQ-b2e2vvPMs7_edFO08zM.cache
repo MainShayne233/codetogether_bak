@@ -1,0 +1,33 @@
+I"à(function() {
+  var ready;
+
+  ready = function() {
+    var codeMirror;
+    $('textarea').keyup(function(event) {
+      var content, id, user_id;
+      id = $(event.target).attr('id');
+      content = $(event.target).val();
+      user_id = $('input.user').attr('id');
+      $.ajax({
+        type: 'PATCH',
+        url: '/whiteboards/' + id,
+        data: {
+          content: content
+        },
+        datatype: 'JSON'
+      });
+      return App.coderoom.type(id, content, user_id);
+    });
+    return codeMirror = CodeMirror(document.body, {
+      value: "console.log('this is a test')",
+      mode: "javascript",
+      theme: "rubyblue"
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+}).call(this);
+:ET

@@ -47,6 +47,8 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
+    codemirror-rails (5.11.1)
+      railties (>= 3.0, < 6.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -190,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
+  codemirror-rails
   coffee-rails (~> 4.2)
   devise
   haml-rails
