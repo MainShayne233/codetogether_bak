@@ -21,6 +21,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'codemirror-rails'
 
+gem 'rails_12factor'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
