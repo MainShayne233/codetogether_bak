@@ -1,18 +1,4 @@
 ready = ->
-#  $('textarea').keyup (event) ->
-#    console.log $(event.target).html()
-#    id = $(event.target).attr('id')
-#    content = $(event.target).val()
-#    user_id = $('input.user').attr('id')
-#
-#    $.ajax({
-#      type: 'PATCH',
-#      url: '/whiteboards/' + id
-#      data: {content: content},
-#      datatype: 'JSON'
-#    })
-#
-#    App.coderoom.type(id, content, user_id)
 
   window.codeMirror = CodeMirror.fromTextArea($('.code').get(0), {
     lineNumbers: true,
@@ -48,4 +34,4 @@ ready = ->
 
 
 $(document).ready(ready)
-$(document).on('page:load', ready)
+$(document).on('page:change', ready)

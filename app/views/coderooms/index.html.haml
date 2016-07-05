@@ -2,4 +2,4 @@
   %h1 Coderooms
   .container
     - @coderooms.each do |coderoom|
-      %h2= link_to coderoom.name, coderoom
+      %h2= link_to coderoom.name, coderoom, method: :get # Overrides turbolinks

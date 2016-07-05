@@ -1,0 +1,28 @@
+- flash.each do |name, msg|
+  - if msg.is_a?(String)
+    %div{:class => "alert alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+      = content_tag :div, msg, :id => "flash_#{name}"
+
+%h2.center Log in
+
+.center
+
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .field
+      %br/
+      = f.text_field :username, class: 'form-control smaller', placeholder: 'Username', autofocus: true
+    .field
+      %br/
+      = f.password_field :password, class: 'form-control smaller', placeholder: 'Password', autocomplete: "off"
+      %br/
+
+    .actions
+      = f.submit "Log in", class: 'btn btn-primary form-btn'
+    %br/
+
+    - if devise_mapping.rememberable?
+      .field
+        = f.check_box :remember_me
+        = f.label :remember_me
+  = render "devise/shared/links"
