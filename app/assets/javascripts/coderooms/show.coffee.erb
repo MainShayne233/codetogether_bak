@@ -1,13 +1,20 @@
 ready = ->
 
-  window.codeMirror = CodeMirror.fromTextArea($('.code').get(0), {
+  window.whiteboard = CodeMirror.fromTextArea($('.code').get(0), {
     lineNumbers: true,
     mode: "text/x-ruby",
     theme: 'base16-dark',
     tabSize: 2
   });
 
-  window.codeMirror.on 'keyup', (event) ->
+#  window.output = CodeMirror.fromTextArea($('.code').get(0), {
+#    lineNumbers: true,
+#    mode: "text/x-ruby",
+#    theme: 'base16-dark',
+#    tabSize: 2
+#  });
+
+  window.whiteboard.on 'keyup', (event) ->
     id = $('.code_container').attr('id')
     content = event.getValue()
     user_id = $('input.user').attr('id')

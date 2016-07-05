@@ -7,7 +7,7 @@ App.coderoom = App.cable.subscriptions.create "CoderoomChannel",
 
   received: (data) ->
     if $('#' + data.user_id + '.user').length == 0
-      window.codeMirror.setValue(data.content)
+      window.whiteboard.setValue(data.content)
 
   type: (id, content, user_id) ->
     @perform 'type', id: id, content: content, user_id: user_id
