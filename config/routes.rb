@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :whiteboards do
     get '/run' => 'whiteboards#run'
+    get '/clear' => 'whiteboards#clear'
+
   end
 
 end

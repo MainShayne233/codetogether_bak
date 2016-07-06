@@ -1,5 +1,8 @@
 .code_container{id: whiteboard.id}
-  %textarea.code{rows: 20}= whiteboard.content
+  %textarea.whiteboard= whiteboard.content
+  %br
+  %textarea.output= whiteboard.output
+
 
 %input{type: 'hidden', class: 'user', id: current_user.id}
 

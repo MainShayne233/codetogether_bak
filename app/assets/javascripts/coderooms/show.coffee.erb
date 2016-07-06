@@ -1,18 +1,20 @@
 ready = ->
 
-  window.whiteboard = CodeMirror.fromTextArea($('.code').get(0), {
+  window.whiteboard = CodeMirror.fromTextArea($('.whiteboard').get(0), {
     lineNumbers: true,
     mode: "text/x-ruby",
     theme: 'base16-dark',
     tabSize: 2
   });
 
-#  window.output = CodeMirror.fromTextArea($('.code').get(0), {
-#    lineNumbers: true,
-#    mode: "text/x-ruby",
-#    theme: 'base16-dark',
-#    tabSize: 2
-#  });
+  window.output = CodeMirror.fromTextArea($('.output').get(0), {
+    lineNumbers: true,
+    mode: "text/x-ruby",
+    theme: 'base16-dark',
+    tabSize: 2,
+    readOnly: true
+  });
+
 
   window.whiteboard.on 'keyup', (event) ->
     id = $('.code_container').attr('id')
@@ -36,9 +38,19 @@ ready = ->
       url: '/whiteboards/' + id + '/run',
       dataType: 'JSON'
       success: (data) ->
-        $('#output').html(data.return)
+        window.output.setValue(data.return)
     })
 
+
+  $('#clear_output').click ->
+    id = $('.code_container').attr('id')
+    $.ajax({
+      type: 'GET',
+      url: '/whiteboards/' + id + '/clear',
+      dataType: 'JSON'
+      success: (data) ->
+        window.output.setValue('')
+    })
 
 $(document).ready(ready)
 $(document).on('page:change', ready)
