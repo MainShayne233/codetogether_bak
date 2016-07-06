@@ -2,14 +2,7 @@ class WhiteboardsController < ApplicationController
 
   def update
     whiteboard = Whiteboard.find(params['id'])
-    if params['content'].profane?
-      current_user.destroy
-      whiteboard.update_attributes content: params['content'][0..-10]
-      flash[:alert] = 'Bye bye account. Come back when you can watch your language.'
-      redirect_to new_user_registration_path
-    else
-      whiteboard.update_attributes content: params['content']
-    end
+    whiteboard.update_attributes content: params['content']
   end
 
   def run

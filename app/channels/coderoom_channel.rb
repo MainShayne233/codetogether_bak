@@ -9,7 +9,8 @@ class CoderoomChannel < ApplicationCable::Channel
   end
 
   def type data
-    content = data['content'].profane? ? '' : data['content']
-    ActionCable.server.broadcast 'coderoom_channel', id: data['id'], content: content, user_id: data['user_id']
+    ActionCable.server.broadcast 'coderoom_channel', id: data['id'],
+                                                     content: data['content'],
+                                                     user_id: data['user_id']
   end
 end
