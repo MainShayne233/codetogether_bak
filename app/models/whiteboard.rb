@@ -7,6 +7,7 @@ class Whiteboard < ApplicationRecord
     rescue Exception => e
       output = e
     end
+    return 'Error: Output would not have been suitable for children.' if output.profane?
     Whiteboard.formatted_output output
   end
 

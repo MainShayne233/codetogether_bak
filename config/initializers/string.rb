@@ -3,7 +3,7 @@ class String
     %w(21062416 08191807 23182416 260808 26080819121522 2518072419).each do |profanity|
       return true if self.downcase.include? profanity.decode
     end
-    return true if !!(self[/8=*>/])
+    return true if !!(self[/8=*[>,)]/])
     false
   end
 
