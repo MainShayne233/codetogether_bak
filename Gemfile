@@ -21,6 +21,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'codemirror-rails'
 
+gem 'rename'
+
 gem 'rails_12factor'
 
 
