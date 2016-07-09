@@ -20,5 +20,4 @@
 #= require codemirror/modes/javascript
 #= require codemirror/modes/ruby
 #= require codemirror/modes/haml
-#= require_tree .
 

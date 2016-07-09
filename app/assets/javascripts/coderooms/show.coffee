@@ -9,7 +9,6 @@ ready = ->
 
   window.output = CodeMirror.fromTextArea($('.output').get(0), {
     lineNumbers: true,
-    mode: "text/x-ruby",
     theme: 'base16-dark',
     tabSize: 2,
     readOnly: true
@@ -28,29 +27,17 @@ ready = ->
       datatype: 'JSON'
     })
 
-    App.coderoom.type(id, content, user_id)
+    App.whiteboard.type(id, content, user_id)
 
 
   $('#run_script').click ->
     id = $('.code_container').attr('id')
-    $.ajax({
-      type: 'GET',
-      url: '/whiteboards/' + id + '/run',
-      dataType: 'JSON'
-      success: (data) ->
-        window.output.setValue(data.return)
-    })
+    App.resultboard.run(id)
 
 
   $('#clear_output').click ->
     id = $('.code_container').attr('id')
-    $.ajax({
-      type: 'GET',
-      url: '/whiteboards/' + id + '/clear',
-      dataType: 'JSON'
-      success: (data) ->
-        window.output.setValue('')
-    })
+    App.resultboard.clear(id)
 
 $(document).ready(ready)
 $(document).on('page:change', ready)
