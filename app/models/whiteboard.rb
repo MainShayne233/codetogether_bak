@@ -38,11 +38,6 @@ class Whiteboard < ApplicationRecord
     end
     lines.join "\n"
   end
-
-  def safe?
-    return false if content.include? %w(`)
-    return false if content.include? %w()
-  end
-
+  
 
 end
